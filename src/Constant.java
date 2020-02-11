@@ -32,6 +32,12 @@ public class Constant extends Member {
 	public void setHomeClub(String homeClub) {
 		this.homeClub = homeClub;
 	}
+
+
+	@Override
+	public String toString() {
+		return String.format("Constant [homeClub=%s, id=%s, name=%s, weight=%s]", homeClub, id, name, weight);
+	}
 	
 	
 
