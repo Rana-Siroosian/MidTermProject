@@ -7,16 +7,18 @@ public abstract class Member {
 
 	protected int id;
 	protected String name;
+	protected double weight;
 	
 	
 	public Member() {
 		
 	}
 	
-	public Member (int id, String name) {
+	public Member (int id, String name, double weight) {
 		
 		this.id = id;
 		this.name = name;
+		this.weight = weight;
 	}
 	
 	public String getName() {
@@ -33,6 +35,12 @@ public abstract class Member {
 	
 	public int getId() {
 		return id;
+	}
+	public double getWeight() {
+		return weight;
+	}
+	public void setWeight(double weight) {
+		this.weight = weight;
 	}
 	
 	@Override
