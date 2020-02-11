@@ -17,4 +17,16 @@ public class Constant extends Member {
 		}
 	}
 
+
+	public String getHomeClub() {
+		return homeClub;
+	}
+
+
+	public void setHomeClub(String homeClub) {
+		this.homeClub = homeClub;
+	}
+	
+	
+
 }
