@@ -19,6 +19,8 @@ public class Midterm {
 		ClubArt.displayGreeting("FITNESS CLUB");
 //		ClubArt.displayClubName("R A N A");
 //		List<Member> member = new ArrayList();
+//		String [] clubNames = {"Dumbell Paradise", "Oxygen360" , "Crazy CrossFit", "Run With It",
+//				"Tred Lightly", "Spin Me Right Round"};
 		
  		List<Constant> constant = new ArrayList();
 		List<Flexible> flexible = new ArrayList();
@@ -28,7 +30,7 @@ public class Midterm {
 	}
 	
 	public static void printMenu(List<Constant> constant,List<Flexible> flexible,Scanner scnr) {
-		
+
 		String [] menu = {"Add Member", "Check In Member", "Generate Invoice", 
 				"Remove member", "Quit"};
 		System.out.println("**************************************************"
@@ -75,6 +77,18 @@ public class Midterm {
 		 flexible.add(new Flexible(memberName, memberId, weight));
 		 return flexible;
 
+	}
+	
+	public static checkIn(Scanner scnr) {
+		Flexible flexible = new Flexible();
+		String [] clubNames = {"Dumbell Paradise", "Oxygen360" , "Crazy CrossFit", "Run With It",
+				"Tred Lightly", "Spin Me Right Round"};
+		for (int i = 0; i < clubNames.length; i++) {
+			System.out.println((i+1) + ". " + clubNames[i]);
+
+		}
+		int club = Validator.getInt(scnr, "Which club the member would like to check in? ", 1, 6);
+		flexible.checkIn(club);
 	}
 }
 	
