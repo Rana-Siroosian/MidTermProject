@@ -11,8 +11,20 @@ import java.awt.image.BufferedImage;
 public class Midterm {
 
 	public static void main(String[] args) throws Exception {
-		
-		ClubArt.displayClubName("R A N A");
+		ClubArt.displayGreeting("FITNESS CLUB");
+//		ClubArt.displayClubName("R A N A");
+		printMenu();
 	}
-
-}
+	
+	public static void printMenu() {
+		
+		String [] menu = {"Add Member", "Check In Member", "Generate Invoice", 
+				"Remove member", "Quit"};
+		System.out.println("**************************************************"
+				+ "********************************************************************************\n");
+		for (int i = 0; i < menu.length; i++) {
+			System.out.println((i+1) + ". " + menu[i]);
+		}
+		}
+	}
+	

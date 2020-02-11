@@ -18,7 +18,7 @@ public class ClubArt {
     public static final int ART_SIZE_MEDIUM = 18;
     public static final int ART_SIZE_LARGE = 24;
     public static final int ART_SIZE_HUGE = 32;
- 
+    public static final int ART_SIZE_EXTRASMALL = 18;
     private static final String DEFAULT_ART_SYMBOL = "*";
  
     
@@ -29,11 +29,21 @@ public class ClubArt {
     }
     
     
-    
+    public static void displayGreeting(String name) throws Exception {
+    	printGreet(name);
+    }
     
     public static void addMembers() {
     	
     	
+    }
+	private static void printGreet(String name) throws Exception {
+    	
+    	ClubArt artGen = new ClubArt();
+
+    	System.out.println();
+        artGen.printTextArt(name, ClubArt.ART_SIZE_EXTRASMALL, ASCIIArtFont.ART_FONT_SANS_SERIF,"@");
+        System.out.println();
     }
     private static void printClubName(String name) throws Exception {
     	ClubArt artGen = new ClubArt();
