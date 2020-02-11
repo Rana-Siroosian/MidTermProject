@@ -8,10 +8,10 @@ public class MemberLineConverter implements LineConverter<Member> {
 	@Override
 	public String toLine(Member member) {
 		if (member instanceof Flexible) {
-			return String.format("%d\t%s\t%d\t%d", member.getId(), member.getName(), member.getWeight(),
+			return String.format("%d\t%s\t%f\t%d", member.getId(), member.getName(), member.getWeight(),
 					((Flexible) member).getPoints());
 		} else {
-			return String.format("%d\t%s\t%d\t%s", member.getId(), member.getName(), member.getWeight(),
+			return String.format("%d\t%s\t%f\t%s", member.getId(), member.getName(), member.getWeight(),
 					((Constant) member).getHomeClub());
 		}
 
