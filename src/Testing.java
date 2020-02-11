@@ -7,7 +7,7 @@ public class Testing {
 	public static void main(String[] args) {
 		
 	
-		fileHelper.append(new Flexible(1, "Rana", 0.0, 121));
+		fileHelper.append(new Flexible(1, "Rana", 121, 0));
 		fileHelper.append(new Constant(2, "Jeannie", 130, "Fitterize"));
 		
 		System.out.println(getFileAsList());

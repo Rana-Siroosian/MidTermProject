@@ -21,6 +21,11 @@ public class Flexible extends Member{
 		
 		points++;
 	}
+	
+	@Override 
+	public String toString() {
+		return String.format("%-5d%-15s%-5f%-5d", getId(), getName(), getWeight(), points);
+	}
 
 
 	public int getPoints() {
