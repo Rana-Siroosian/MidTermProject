@@ -4,6 +4,12 @@ public class Constant extends Member {
 	protected String homeClub;
 	
 	
+	public Constant(int id, String name, double weight, String homeClub) {
+		super(id, name, weight);
+		this.homeClub = homeClub;
+	}
+
+
 	@SuppressWarnings("unlikely-arg-type")
 	@Override
 	public void checkIn(Club club) throws AccessDeniedException {
