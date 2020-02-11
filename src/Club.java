@@ -29,6 +29,9 @@ public class Club {
 		return String.format("Club [name=%s, address=%s]", name, address);
 	}
 	
+	public static void displayName(String name) {
+		
+	}
 	
 	
 }
