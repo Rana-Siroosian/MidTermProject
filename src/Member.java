@@ -1,5 +1,9 @@
-
-public class Member {
+/**
+ * 
+ * @author RanaSiroosian&JeannieMcCarthy
+ *
+ */
+public abstract class Member {
 
 	protected int id;
 	protected String name;
@@ -36,5 +40,6 @@ public class Member {
 		return String.format("%-10d%-15s", getId(), getName());
 	}
 	
+	public abstract void checkIn(Club club) throws AccessDeniedException;
 	
 }
