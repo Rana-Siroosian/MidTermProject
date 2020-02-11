@@ -27,14 +27,15 @@ public class MemberLineConverter implements LineConverter<Member> {
 			int points = Integer.parseInt(parts[3]);
 			return new Flexible(id, name, weight, points);
 		}
-		if (line.matches(".*\\t.*\\t.*\\t\\.*")) {
+		//if (line.matches(".*\\t.*\\t.*\\t\\.*")) {
+		else {
 			String[] parts = line.split("\t");
 			int id = Integer.parseInt(parts[0]);
 			String name = parts[1];
 			double weight = Double.parseDouble(parts[2]);
 			String homeClub = parts[3];
 			return new Constant(id, name, weight, homeClub);
-		}return null;
+		}
 	}
 
 }

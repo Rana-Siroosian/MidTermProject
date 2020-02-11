@@ -4,5 +4,11 @@
 2	Jeannie	130.000000	Fitterize
 1	Rana	0.000000	121
 2	Jeannie	130.000000	Fitterize
+<<<<<<< HEAD
 1	Rana	0.000000	121
+=======
+1	Rana	121.000000	0
+2	Jeannie	130.000000	Fitterize
+1	Rana	121.000000	0
+>>>>>>> f072f7af81069885854ffbb8a03685044f8f29d1
 2	Jeannie	130.000000	Fitterize
