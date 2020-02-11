@@ -3,6 +3,7 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -22,8 +23,8 @@ public class Midterm {
 //		String [] clubNames = {"Dumbell Paradise", "Oxygen360" , "Crazy CrossFit", "Run With It",
 //				"Tred Lightly", "Spin Me Right Round"};
 		
- 		List<Constant> constant = new ArrayList();
-		List<Flexible> flexible = new ArrayList();
+ 		List<Constant> constant = new ArrayList<>();
+		List<Flexible> flexible = new ArrayList<>();
 		printMenu(constant, flexible, scnr);
 
 		
@@ -55,7 +56,7 @@ public class Midterm {
 				break;
 			}
 		case 2 : 
-			
+			checkIn(scnr);
 		}
 	}
 	
@@ -79,16 +80,21 @@ public class Midterm {
 
 	}
 	
-	public static checkIn(Scanner scnr) {
-		Flexible flexible = new Flexible();
-		String [] clubNames = {"Dumbell Paradise", "Oxygen360" , "Crazy CrossFit", "Run With It",
-				"Tred Lightly", "Spin Me Right Round"};
-		for (int i = 0; i < clubNames.length; i++) {
-			System.out.println((i+1) + ". " + clubNames[i]);
+	public static void checkIn(Scanner scnr) {
+		Flexible flexible = new Flexible("Jeannie", 3, 131);
+		
+		List<Club> clubs = new ArrayList<>(Arrays.asList(new Club("Dumbell Paradise", "123 Main Street"),
+				new Club("Oxygen360" , "345 Main St."), new Club("Crazy CrossFit", "678 Main St."),
+				new Club("Run With It", "123 Runna Way"), new Club("Tread Lightly", "777 Stomp Ct."),
+				new Club("Spin Me Right Round", "1111 Inna Cr.")));
+		for (int i = 0; i < clubs.size(); i++) {
+			System.out.println((i+1) + ". " + clubs.get(i));
 
 		}
-		int club = Validator.getInt(scnr, "Which club the member would like to check in? ", 1, 6);
-		flexible.checkIn(club);
+		int club = Validator.getInt(scnr, "Which club the member would like to check in? ", 1, 6)-1;
+		flexible.checkIn(clubs.get(club));
+		System.out.println(flexible.points);
+		
 	}
 }
 	
