@@ -2,6 +2,7 @@
 public class Flexible extends Member{
 
 	protected int points = 0;
+	protected double fee = 44.44;
 	
 	
 	public Flexible(int id, String name, double weight, int points) {
@@ -27,7 +28,14 @@ public class Flexible extends Member{
 		return String.format("%-5d%-15s%-5.2f\t%-10d\n", getId(), getName(), getWeight(), points);
 	}
 
+	public double getFee() {
+		return fee;
+	}
 
+
+	public void setFee(double fee) {
+		this.fee = fee;
+	}
 	public int getPoints() {
 		return points;
 	}
