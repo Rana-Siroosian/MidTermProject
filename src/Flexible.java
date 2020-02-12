@@ -24,7 +24,7 @@ public class Flexible extends Member{
 	
 	@Override 
 	public String toString() {
-		return String.format("%-5d%-15s%-5.1f%-5d\n", getId(), getName(), getWeight(), points);
+		return String.format("%-5d%-15s%-5.2f\t%-10d\n", getId(), getName(), getWeight(), points);
 	}
 
 

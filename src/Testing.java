@@ -5,11 +5,10 @@ public class Testing {
 			new MemberLineConverter());
 	public static void main(String[] args) {
 		
-	System.out.println("somethinhg1");
-//		fileHelper.append(new Flexible(1, "Rana", 121, 0));
-//		fileHelper.append(new Constant(2, "Jeannie", 130, "Fitterize"));
-		
-		//System.out.println(getFileAsList());
+	
+		fileHelper.append(new Flexible(1, "Rana", 121, 9));
+		fileHelper.append(new Constant(2, "Jeannie", 130, "Fitterize"));
+
 		for (Member member : getFileAsList()) {
 			System.out.println(member);
 			System.out.println("something");
