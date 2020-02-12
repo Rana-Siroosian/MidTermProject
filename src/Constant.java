@@ -36,8 +36,8 @@ public class Constant extends Member {
 
 	@Override
 	public String toString() {
-		return String.format("Constant [homeClub=%s, id=%s, name=%s, weight=%s]", homeClub, id, name, weight);
-	}
+		return String.format("%-5d%-15s%-5.2f\t%s\n", getId(), getName(), getWeight(), homeClub);	
+		}
 	
 	
 

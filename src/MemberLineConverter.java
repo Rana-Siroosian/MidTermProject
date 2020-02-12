@@ -21,6 +21,7 @@ public class MemberLineConverter implements LineConverter<Member> {
 	public Member fromLine(String line) {
 		if (line.matches(".*\\t.*\\t.*\\t\\d*")) {
 			String[] parts = line.split("\t");
+			parts[0].trim();
 			int id = Integer.parseInt(parts[0]);
 			String name = parts[1];
 			double weight = Double.parseDouble(parts[2]);

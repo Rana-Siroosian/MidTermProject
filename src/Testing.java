@@ -10,7 +10,10 @@ public class Testing {
 		fileHelper.append(new Flexible(1, "Rana", 121, 0));
 		fileHelper.append(new Constant(2, "Jeannie", 130, "Fitterize"));
 		
-		System.out.println(getFileAsList());
+		//System.out.println(getFileAsList());
+		for (Member member : getFileAsList()) {
+			System.out.println(member);
+		}
 	}
 	
 	private static List<Member> getFileAsList() {
