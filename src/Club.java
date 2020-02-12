@@ -1,3 +1,8 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
 /**
  * @author JeannieMcCarthy&RanaSiroosian
  *
@@ -32,6 +37,22 @@ public class Club {
 	public static void displayName(String name) {
 		
 	}
+	//club list variable
+	private static List<Club> clubs = new ArrayList<>(Arrays.asList
+			(new Club("Dumbell Paradise", "123 Main Street"), new Club("Oxygen360" , "345 Main St."),
+			new Club("Crazy CrossFit", "678 Main St."), new Club("Run With It", "123 Runna Way"),
+			new Club("Tread Lightly", "777 Stomp Ct."), new Club("Spin Me Right Round", "1111 Inna Cr.")));
 	
+	//show menu of clubs method
+	public static void showClubs() {
+		for (int i = 0; i < clubs.size(); i++) {
+			System.out.println((i+1) + ". " + clubs.get(i));
+		}
+	}
 	
+	public Club chooseClub(Scanner scnr) {
+		showClubs();
+		int club = Validator.getInt(scnr, "Choose a club: ", 1, 6)-1;
+		return clubs.get(club);
+	}
 }
