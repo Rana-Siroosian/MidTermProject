@@ -8,10 +8,10 @@ public class MemberLineConverter implements LineConverter<Member> {
 	@Override
 	public String toLine(Member member) {
 		if (member instanceof Flexible) {
-			return String.format("%d\t%s\t%.2f\t%d", member.getId(), member.getName(), member.getWeight(),
+			return String.format("%d\t%s\t%.2f\t%d\t%d", member.getId(), member.getName(), member.getWeight(), member.getFee(),
 					((Flexible) member).getPoints());
 		} else {
-			return String.format("%d\t%s\t%.2f\t%s", member.getId(), member.getName(), member.getWeight(),
+			return String.format("%d\t%s\t%.2f\t%d\t%s", member.getId(), member.getName(), member.getWeight(), member.getFee(),
 					((Constant) member).getHomeClub());
 		}
 
@@ -26,8 +26,9 @@ public class MemberLineConverter implements LineConverter<Member> {
 			int id = Integer.parseInt(parts[0]);
 			String name = parts[1];
 			double weight = Double.parseDouble(parts[2]);
-			int points = Integer.parseInt(parts[3]);
-			Flexible thisFlex = new Flexible(id, name, weight, points);
+			double fee = Double.parseDouble(parts[3]);
+			int points = Integer.parseInt(parts[4]);
+			Flexible thisFlex = new Flexible(id, name, weight, fee, points);
 //			System.out.println(thisFlex);
 			return thisFlex;
 		}
@@ -37,10 +38,11 @@ public class MemberLineConverter implements LineConverter<Member> {
 			int id = Integer.parseInt(parts[0]);
 			String name = parts[1];
 			double weight = Double.parseDouble(parts[2]);
-			String homeClub = parts[3];
-			return new Constant(id, name, weight, homeClub);
+			double fee = Double.parseDouble(parts[3]);
+			String homeClub = parts[4];
+			return new Constant(id, name, weight, fee, homeClub);
 		}
-		else return new Flexible(0, "ERROR", 0.0, 0);
+		else return new Flexible(0, "ERROR", 0.0,,0.0, 0);
 	}
 
 }
