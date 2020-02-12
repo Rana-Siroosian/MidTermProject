@@ -8,10 +8,10 @@ public class MemberLineConverter implements LineConverter<Member> {
 	@Override
 	public String toLine(Member member) {
 		if (member instanceof Flexible) {
-			return String.format("%d\t%s\t%f\t%d", member.getId(), member.getName(), member.getWeight(),
+			return String.format("%d\t%s\t%.2f\t%d", member.getId(), member.getName(), member.getWeight(),
 					((Flexible) member).getPoints());
 		} else {
-			return String.format("%d\t%s\t%f\t%s", member.getId(), member.getName(), member.getWeight(),
+			return String.format("%d\t%s\t%.2f\t%s", member.getId(), member.getName(), member.getWeight(),
 					((Constant) member).getHomeClub());
 		}
 
@@ -22,7 +22,7 @@ public class MemberLineConverter implements LineConverter<Member> {
 		if (line.matches(".*\\t.*\\t.*\\t\\d*")) {
 			System.out.println(line);
 			String[] parts = line.split("\t");
-			//parts[0].trim();
+
 			int id = Integer.parseInt(parts[0]);
 			String name = parts[1];
 			double weight = Double.parseDouble(parts[2]);
