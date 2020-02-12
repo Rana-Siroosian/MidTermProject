@@ -179,7 +179,7 @@ public class Midterm {
 	
 	public static void generateInvoice() {
 		List<Member> members = fileHelper.readAll();
-		double invoice = 
+		//double invoice = 
 		System.out.println(String.format("%-2s %-5s%-15s%-12s%-10s","#", "Id", "Member","Weight","Club Name"));
 		System.out.println("*****************************************");
 		int i=0;
