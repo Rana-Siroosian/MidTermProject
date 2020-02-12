@@ -6,8 +6,8 @@ public class Testing {
 	public static void main(String[] args) {
 		
 	
-		fileHelper.append(new Flexible(1, "Rana", 121, 9));
-		fileHelper.append(new Constant(2, "Jeannie", 130, "Fitterize"));
+		//fileHelper.append(new Flexible(1, "Rana", 121, 9));
+		//fileHelper.append(new Constant(2, "Jeannie", 130, "Fitterize"));
 
 		for (Member member : getFileAsList()) {
 			System.out.println(member);

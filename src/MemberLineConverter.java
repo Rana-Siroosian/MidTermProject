@@ -42,7 +42,7 @@ public class MemberLineConverter implements LineConverter<Member> {
 			String homeClub = parts[4];
 			return new Constant(id, name, weight, fee, homeClub);
 		}
-		else return new Flexible(0, "ERROR", 0.0,,0.0, 0);
+		else return new Flexible(0, "ERROR", 0.0,0.0, 0);
 	}
 
 }
