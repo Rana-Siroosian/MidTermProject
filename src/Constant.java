@@ -14,11 +14,11 @@ public class Constant extends Member {
 	@Override
 	public void checkIn(Club club) throws AccessDeniedException {
 		
-		if( club.equals(homeClub)) {
+		if(club.equals(homeClub)) {
 			System.out.println("Welcome to your club.");
 		}
 		else {
-			throw new AccessDeniedException("Your membership type is not eligible "
+			throw new AccessDeniedException("Membership type is not eligible "
 					+ "for entry into this location.");
 		}
 	}

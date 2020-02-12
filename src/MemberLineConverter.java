@@ -20,16 +20,19 @@ public class MemberLineConverter implements LineConverter<Member> {
 	@Override
 	public Member fromLine(String line) {
 		if (line.matches(".*\\t.*\\t.*\\t\\d*")) {
+			System.out.println(line);
 			String[] parts = line.split("\t");
-			parts[0].trim();
+			//parts[0].trim();
 			int id = Integer.parseInt(parts[0]);
 			String name = parts[1];
 			double weight = Double.parseDouble(parts[2]);
 			int points = Integer.parseInt(parts[3]);
-			return new Flexible(id, name, weight, points);
+			Flexible thisFlex = new Flexible(id, name, weight, points);
+			System.out.println(thisFlex);
+			return thisFlex;
 		}
-		//if (line.matches(".*\\t.*\\t.*\\t\\.*")) {
-		else {
+		 
+		else if (line.matches(".\\t.*\\t[a-zA-Z]*")){
 			String[] parts = line.split("\t");
 			int id = Integer.parseInt(parts[0]);
 			String name = parts[1];
@@ -37,6 +40,7 @@ public class MemberLineConverter implements LineConverter<Member> {
 			String homeClub = parts[3];
 			return new Constant(id, name, weight, homeClub);
 		}
+		else return new Flexible(0, "ERROR", 0.0, 0);
 	}
 
 }

@@ -44,9 +44,7 @@ public abstract class Member {
 	}
 	
 	@Override
-	public String toString() {
-		return String.format("%-10d%-15s", getId(), getName());
-	}
+	public abstract String toString();
 	
 	public abstract void checkIn(Club club) throws AccessDeniedException;
 	
