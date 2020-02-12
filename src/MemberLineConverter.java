@@ -20,7 +20,7 @@ public class MemberLineConverter implements LineConverter<Member> {
 	@Override
 	public Member fromLine(String line) {
 		if (line.matches(".*\\t.*\\t.*\\t\\d*")) {
-			System.out.println(line);
+//			System.out.println(line);
 			String[] parts = line.split("\t");
 
 			int id = Integer.parseInt(parts[0]);
@@ -28,11 +28,11 @@ public class MemberLineConverter implements LineConverter<Member> {
 			double weight = Double.parseDouble(parts[2]);
 			int points = Integer.parseInt(parts[3]);
 			Flexible thisFlex = new Flexible(id, name, weight, points);
-			System.out.println(thisFlex);
+//			System.out.println(thisFlex);
 			return thisFlex;
 		}
 		 
-		else if (line.matches(".\\t.*\\t[a-zA-Z]*")){
+		else if (line.matches(".*\\t.*\\t[a-zA-Z]*")){
 			String[] parts = line.split("\t");
 			int id = Integer.parseInt(parts[0]);
 			String name = parts[1];
