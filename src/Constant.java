@@ -4,9 +4,12 @@ public class Constant extends Member {
 	protected String homeClub;
 	
 	
+
+
 	public Constant(int id, String name, double weight, String homeClub) {
 		super(id, name, weight);
 		this.homeClub = homeClub;
+		this.fee=19.99;
 	}
 
 

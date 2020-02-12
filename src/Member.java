@@ -8,8 +8,16 @@ public abstract class Member {
 	protected int id;
 	protected String name;
 	protected double weight;
+	protected double fee;
 	
-	
+	public double getFee() {
+		return fee;
+	}
+
+	public void setFee(double fee) {
+		this.fee = fee;
+	}
+
 	public Member() {
 		
 	}

@@ -73,6 +73,10 @@ public class Midterm {
 			printMenu(constant, flexible, scnr);
 			break;
 			
+		case 4 :
+			generateInvoice(scnr);
+			printMenu(constant, flexible, scnr);
+			break;
 		case 5 : 
 			removeMember(scnr);
 			printMenu(constant, flexible, scnr);
@@ -93,7 +97,7 @@ public class Midterm {
 //		constant.add(new Constant( memberId, memberName,weight, clubName));
 		
 		fileHelper.append(new Constant(memberId, memberName,weight, clubName));
-		System.out.println("Member is added.");
+		System.out.println("\nMember is added.");
 		System.out.println("---------------------------------------------");
 
 		return constant;
@@ -106,7 +110,7 @@ public class Midterm {
 		double weight = Validator.getDouble(scnr, "Please enter member's weight: ");
 //		 flexible.add(new Flexible(memberName, memberId, weight));
 		fileHelper.append(new Flexible(memberName,memberId ,weight));
-		System.out.println("Member is added.");
+		System.out.println("\nMember is added.");
 		System.out.println("---------------------------------------------");
 
 		 return flexible;
@@ -177,18 +181,31 @@ public class Midterm {
 
 	}
 	
-	public static void generateInvoice() {
+	public static void generateInvoice(Scanner scnr) {
 		List<Member> members = fileHelper.readAll();
-		//double invoice = 
-		System.out.println(String.format("%-2s %-5s%-15s%-12s%-10s","#", "Id", "Member","Weight","Club Name"));
-		System.out.println("*****************************************");
+				
+		System.out.println(String.format("%-2s %-5s%-15s","#", "Id", "Member"));
+		System.out.println("***************");
 		int i=0;
 
 		for (Member member : members) {
 
-			System.out.println((i+=1)+". " + member.toString());
+			System.out.println((i+=1)+". " + member.getId()+ "\t" +member.getName()+"\n");
+			
 			
 		}
+		System.out.println();
+		int invoice = Validator.getInt(scnr, "Which member would you like to see the invoice for? (choose by number): ", 1, members.size());
+		
+		System.out.println();
+		System.out.println(String.format("%-5s%-11s%-15s", "Id", "Member", "Fee"));
+		System.out.println("*********************");
+
+			System.out.println(String.format("%-5s %-10s%-10s" ,members.get(invoice-1).getId(), members.get(invoice-1).getName()
+					,members.get(invoice-1).getFee()));
+
+		System.out.println("---------------------------------------------");
+
 		
 	}
 }
