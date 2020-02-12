@@ -63,7 +63,7 @@ public class Midterm {
 				break;
 			}
 		case 2 : 
-			checkIn(scnr);
+			CheckIn.checkIn(scnr);
 			printMenu(constant, flexible, scnr);
 
 			break;
@@ -117,22 +117,22 @@ public class Midterm {
 
 	}
 	
-	public static void checkIn(Scanner scnr) {
-		Flexible flexible = new Flexible("Jeannie", 3, 131);
-		
-		List<Club> clubs = new ArrayList<>(Arrays.asList(new Club("Dumbell Paradise", "123 Main Street"),
-				new Club("Oxygen360" , "345 Main St."), new Club("Crazy CrossFit", "678 Main St."),
-				new Club("Run With It", "123 Runna Way"), new Club("Tread Lightly", "777 Stomp Ct."),
-				new Club("Spin Me Right Round", "1111 Inna Cr.")));
-		for (int i = 0; i < clubs.size(); i++) {
-			System.out.println((i+1) + ". " + clubs.get(i));
-
-		}
-		int club = Validator.getInt(scnr, "Which club member would like to check in? ", 1, 6)-1;
-		flexible.checkIn(clubs.get(club));
-		System.out.println(flexible.points);
-		
-	}
+//	public static void checkIn(Scanner scnr) {
+//		Flexible flexible = new Flexible("Jeannie", 3, 131);
+//		
+//		List<Club> clubs = new ArrayList<>(Arrays.asList(new Club("Dumbell Paradise", "123 Main Street"),
+//				new Club("Oxygen360" , "345 Main St."), new Club("Crazy CrossFit", "678 Main St."),
+//				new Club("Run With It", "123 Runna Way"), new Club("Tread Lightly", "777 Stomp Ct."),
+//				new Club("Spin Me Right Round", "1111 Inna Cr.")));
+//		for (int i = 0; i < clubs.size(); i++) {
+//			System.out.println((i+1) + ". " + clubs.get(i));
+//
+//		}
+//		int club = Validator.getInt(scnr, "Which club member would like to check in? ", 1, 6)-1;
+//		flexible.checkIn(clubs.get(club));
+//		System.out.println(flexible.points);
+//		
+//	}
 	
 	public static void displayMemberInfo() {
 		System.out.println(String.format("%-5s%-15s%-12s%-10s", "Id", "Member","Weight","Club Name"));

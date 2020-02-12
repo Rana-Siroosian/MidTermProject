@@ -31,7 +31,7 @@ public class Club {
 	}
 	@Override
 	public String toString() {
-		return String.format("Club [name=%s, address=%s]", name, address);
+		return String.format("Club: %s", name);
 	}
 	
 	public static void displayName(String name) {
@@ -46,13 +46,13 @@ public class Club {
 	//show menu of clubs method
 	public static void showClubs() {
 		for (int i = 0; i < clubs.size(); i++) {
-			System.out.println((i+1) + ". " + clubs.get(i));
+			System.out.println(String.format("%s%s%-15s",i+1,". ", clubs.get(i)));
 		}
 	}
 	
-	public Club chooseClub(Scanner scnr) {
+	public static Club chooseClub(Scanner scnr) {
 		showClubs();
-		int club = Validator.getInt(scnr, "Choose a club: ", 1, 6)-1;
+		int club = Validator.getInt(scnr, "", 1, 6)-1;
 		return clubs.get(club);
 	}
 }
