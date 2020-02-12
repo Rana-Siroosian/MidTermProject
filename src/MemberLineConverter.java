@@ -32,7 +32,7 @@ public class MemberLineConverter implements LineConverter<Member> {
 			return thisFlex;
 		}
 		 
-		else if (line.matches(".*\\t.*\\t[a-zA-Z]*")){
+		else if (line.matches(".*\\t.*\\t[a-zA-Z][a-zA-Z\\W\\w]*")){
 			String[] parts = line.split("\t");
 			int id = Integer.parseInt(parts[0]);
 			String name = parts[1];
