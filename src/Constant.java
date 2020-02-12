@@ -1,15 +1,26 @@
 
 public class Constant extends Member {
 	
-	protected String homeClub;
+	protected Club homeClub;
 	
 	
-
-
-	public Constant(int id, String name, double weight, String homeClub) {
+//constructor for program
+	public Constant(int id, String name, double weight, Club homeClub) {
 		super(id, name, weight);
 		this.homeClub = homeClub;
 		this.fee=19.99;
+	}
+	//constructor for file reader
+	public Constant(int id, String name, double weight, double fee, String homeClub) {
+		super(id, name, weight);
+		
+		this.fee=fee;
+		//get string from file, loop through clubs to find matching club for this member
+		for (Club club : Club.getClubList()) {
+			if (club.toString().contains(homeClub)) {
+				this.homeClub = club;
+			}
+		}
 	}
 
 
@@ -27,12 +38,12 @@ public class Constant extends Member {
 	}
 
 
-	public String getHomeClub() {
+	public Club getHomeClub() {
 		return homeClub;
 	}
 
 
-	public void setHomeClub(String homeClub) {
+	public void setHomeClub(Club homeClub) {
 		this.homeClub = homeClub;
 	}
 

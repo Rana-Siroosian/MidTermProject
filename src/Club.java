@@ -55,4 +55,7 @@ public class Club {
 		int club = Validator.getInt(scnr, "", 1, 6)-1;
 		return clubs.get(club);
 	}
+	public static List<Club> getClubList() {
+		return clubs;
+	}
 }

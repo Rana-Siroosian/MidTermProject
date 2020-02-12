@@ -4,16 +4,16 @@ public class Flexible extends Member{
 	protected int points = 0;
 	
 	
-	public Flexible(int id, String name, double weight, int points) {
+	public Flexible(int id, String name, double weight, double fee, int points) {
 		super(id, name, weight);
 		this.points = points;
-		this.fee=44.44;
+		this.fee = fee;
 	}
 
 
-	public Flexible(String memberName, int memberId, double weight) {
-		// TODO Auto-generated constructor stub
+	public Flexible(int memberId, String memberName, double weight) {
 		super(memberId, memberName, weight);
+		this.fee = 44.44;
 	}
 
 
