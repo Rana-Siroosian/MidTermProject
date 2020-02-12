@@ -13,7 +13,8 @@ import java.util.Scanner;
  *
  */
 public class Midterm {
-
+	public static FileHelper<Member> fileHelper = new FileHelper<Member>("MembersTextFile",
+			new MemberLineConverter());
 	public static void main(String[] args) throws Exception {
 		
 		Scanner scnr = new Scanner (System.in);
@@ -40,7 +41,7 @@ public class Midterm {
 			System.out.println((i+1) + ". " + menu[i]);
 			
 		}
-		int choice = Validator.getInt(scnr, "What would you like to do? (choose by number) ", 1, 5);
+		int choice = Validator.getInt(scnr, "\nWhat would you like to do? (choose by number) ", 1, 5);
 		System.out.println();
 		
 		switch (choice) {
@@ -50,6 +51,7 @@ public class Midterm {
 			String yesOrNo = Validator.yesOrNo(scnr);
 			if (yesOrNo.equalsIgnoreCase("y")) {
 				addMember1(constant,scnr);
+				
 				break;}
 			else {
 				addMember2(flexible,scnr);
@@ -66,7 +68,8 @@ public class Midterm {
 		int memberId = Validator.getInt(scnr, "Please enter member Id: ");
 		double weight = Validator.getDouble(scnr, "Please enter member's weight: ");
 		String clubName = Validator.getString(scnr, "Please enter the club name: ");
-		constant.add(new Constant( memberId, memberName,weight, clubName));
+//		constant.add(new Constant( memberId, memberName,weight, clubName));
+		fileHelper.append(new Constant(memberId, memberName,weight, clubName));
 		return constant;
 		
 	}
@@ -75,7 +78,9 @@ public class Midterm {
 		String memberName = Validator.getString(scnr, "Please enter member name: ");
 		int memberId = Validator.getInt(scnr, "Please enter member Id: ");
 		double weight = Validator.getDouble(scnr, "Please enter member's weight: ");
-		 flexible.add(new Flexible(memberName, memberId, weight));
+//		 flexible.add(new Flexible(memberName, memberId, weight));
+		fileHelper.append(new Flexible(memberName,memberId ,weight));
+
 		 return flexible;
 
 	}
@@ -91,7 +96,7 @@ public class Midterm {
 			System.out.println((i+1) + ". " + clubs.get(i));
 
 		}
-		int club = Validator.getInt(scnr, "Which club the member would like to check in? ", 1, 6)-1;
+		int club = Validator.getInt(scnr, "Which club member would like to check in? ", 1, 6)-1;
 		flexible.checkIn(clubs.get(club));
 		System.out.println(flexible.points);
 		
