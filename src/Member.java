@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+
 /**
  * 
  * @author RanaSiroosian&JeannieMcCarthy
@@ -9,7 +11,8 @@ public abstract class Member {
 	protected String name;
 	protected double weight;
 	protected double fee;
-	
+
+
 	public double getFee() {
 		return fee;
 	}

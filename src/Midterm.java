@@ -2,6 +2,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
+import java.time.Clock;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -43,7 +46,7 @@ public class Midterm {
 			
 		}
 		System.out.println("---------------------------------------------");
-		int choice = Validator.getInt(scnr, "\nWhat would you like to do? (choose by number) ", 1, 6);
+		int choice = Validator.getInt(scnr, "\nWhat would you like to do? (choose by number): ", 1, 6);
 		System.out.println();
 		
 		switch (choice) {
@@ -94,21 +97,34 @@ public class Midterm {
 		int memberId = Validator.getInt(scnr, "Please enter member Id: ");
 		double weight = Validator.getDouble(scnr, "Please enter member's weight: ");
 		String clubName = Validator.getString(scnr, "Please enter the club name: ");
-//		constant.add(new Constant( memberId, memberName,weight, clubName));
+		LocalDateTime now = LocalDateTime.now();
+		System.out.println(now.getHour());
 		
+		if (now.getHour() > 12 && now.getHour()<18) {
+			System.out.println("Woohoo, You are eligible for discount and we will take 10$ off of your total.");
+		}
 		fileHelper.append(new Constant(memberId, memberName,weight, clubName));
 		System.out.println("\nMember is added.");
 		System.out.println("---------------------------------------------");
 
 		return constant;
-		
 	}
 	
 	public static  List<Flexible> addMember2( List<Flexible> flexible,Scanner scnr){
+		
+		
+		
+		
+		LocalDateTime now = LocalDateTime.now();
+		System.out.println(now.getHour());
+		
 		String memberName = Validator.getString(scnr, "Please enter member name: ");
 		int memberId = Validator.getInt(scnr, "Please enter member Id: ");
 		double weight = Validator.getDouble(scnr, "Please enter member's weight: ");
-//		 flexible.add(new Flexible(memberName, memberId, weight));
+		if (now.getHour() > 12 && now.getHour()<18) {
+			System.out.println("Woohoo, You are eligible for discount and we will take 10$ off of your total.");
+		}
+
 		fileHelper.append(new Flexible(memberName,memberId ,weight));
 		System.out.println("\nMember is added.");
 		System.out.println("---------------------------------------------");
@@ -117,22 +133,7 @@ public class Midterm {
 
 	}
 	
-//	public static void checkIn(Scanner scnr) {
-//		Flexible flexible = new Flexible("Jeannie", 3, 131);
-//		
-//		List<Club> clubs = new ArrayList<>(Arrays.asList(new Club("Dumbell Paradise", "123 Main Street"),
-//				new Club("Oxygen360" , "345 Main St."), new Club("Crazy CrossFit", "678 Main St."),
-//				new Club("Run With It", "123 Runna Way"), new Club("Tread Lightly", "777 Stomp Ct."),
-//				new Club("Spin Me Right Round", "1111 Inna Cr.")));
-//		for (int i = 0; i < clubs.size(); i++) {
-//			System.out.println((i+1) + ". " + clubs.get(i));
-//
-//		}
-//		int club = Validator.getInt(scnr, "Which club member would like to check in? ", 1, 6)-1;
-//		flexible.checkIn(clubs.get(club));
-//		System.out.println(flexible.points);
-//		
-//	}
+
 	
 	public static void displayMemberInfo() {
 		System.out.println(String.format("%-5s%-15s%-12s%-10s", "Id", "Member","Weight","Club Name"));
@@ -208,5 +209,6 @@ public class Midterm {
 
 		
 	}
+	
 }
 	
