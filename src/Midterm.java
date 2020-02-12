@@ -72,10 +72,12 @@ public class Midterm {
 			displayMemberInfo();
 			printMenu(constant, flexible, scnr);
 			break;
+			
 		case 5 : 
 			removeMember(scnr);
 			printMenu(constant, flexible, scnr);
 			break;
+			
 		case 6 :
 			break;
 		}
@@ -89,6 +91,7 @@ public class Midterm {
 		double weight = Validator.getDouble(scnr, "Please enter member's weight: ");
 		String clubName = Validator.getString(scnr, "Please enter the club name: ");
 //		constant.add(new Constant( memberId, memberName,weight, clubName));
+		
 		fileHelper.append(new Constant(memberId, memberName,weight, clubName));
 		System.out.println("Member is added.");
 		System.out.println("---------------------------------------------");
@@ -161,6 +164,8 @@ public class Midterm {
 		if (question.equalsIgnoreCase("y")) {
 			System.out.println(members.get(delete-1).getName() + " is removed from the list! ");
 			members.remove(delete-1);
+			fileHelper.rewrite(members);
+
 			
 		}
 		if (question.equalsIgnoreCase("n")) {
@@ -170,6 +175,10 @@ public class Midterm {
 		}
 		System.out.println("---------------------------------------------");
 
+	}
+	
+	public static void generateInvoice() {
+		
 	}
 }
 	
