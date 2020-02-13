@@ -201,7 +201,29 @@ public class Validator {
 		} while (true);
 
 	}
-	
+	public static String sOrF(Scanner scnr) {
+		boolean loop = false;
+		do {
+
+			String userInput = scnr.nextLine();
+
+			if (userInput.toUpperCase().startsWith("S")) {
+				loop =true;
+				return "S";
+
+			} else if (userInput.toUpperCase().startsWith("F")) {
+				loop = true;
+				return "F";
+
+			} else {
+				loop = false;
+				System.out.println("Please enter S or F.");
+
+			}
+
+		} while (true);
+
+	}
 
 	
 }

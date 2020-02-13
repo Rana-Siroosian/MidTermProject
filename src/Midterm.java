@@ -52,15 +52,14 @@ public class Midterm {
 		switch (choice) {
 		
 		case 1 :
-			System.out.println("Is this member a constant member?");
-			String yesOrNo = Validator.yesOrNo(scnr);
-			if (yesOrNo.equalsIgnoreCase("y")) {
-				addMember1(constant,scnr);
+			
+			if (AddMember.displayMembershipOptions(scnr)) {
+				AddMember.addMember1(scnr);
 				printMenu(constant, flexible, scnr);
 
 				break;}
 			else {
-				addMember2(flexible,scnr);
+				AddMember.addMember2(scnr);
 				printMenu(constant, flexible, scnr);
 
 				break;
@@ -91,57 +90,57 @@ public class Midterm {
 		
 	}
 	
-	public static List<Constant> addMember1(List<Constant> constant,Scanner scnr) {
-		
-		String memberName = Validator.getString(scnr, "Please enter member name: ");
-		int memberId = Validator.getInt(scnr, "Please enter member Id: ");
-		double weight = Validator.getDouble(scnr, "Please enter member's weight: ");
-		//get Club
-		System.out.println("\nPlease choose a club (by number) from the list below: ");
-		Club.showClubs();
-
-		int club = Validator.getInt(scnr, "", 1, 6)-1;
-		Club clubName = Club.getClubList().get(club);
-		//String clubName = Validator.getString(scnr, "Please enter the club name: ");
-		LocalDateTime now = LocalDateTime.now();
-//		System.out.println(now.getHour());
-		double fee = 19.99;
-
-		if (now.getHour() > 12 && now.getHour()<22) {
-			System.out.println("Woohoo, You are eligible for discount and we will take $10 off of your total.");
-			fee -=10.0;
-		}
-		fileHelper.append(new Constant(memberId, memberName, weight, fee,clubName));
-		System.out.println("\nMember is added.");
-		System.out.println("---------------------------------------------");
-
-		return constant;
-	}
+//	public static List<Constant> addMember1(List<Constant> constant,Scanner scnr) {
+//		
+//		String memberName = Validator.getString(scnr, "Please enter member name: ");
+//		int memberId = Validator.getInt(scnr, "Please enter member Id: ");
+//		double weight = Validator.getDouble(scnr, "Please enter member's weight: ");
+//		//get Club
+//		System.out.println("\nPlease choose a club (by number) from the list below: ");
+//		Club.showClubs();
+//
+//		int club = Validator.getInt(scnr, "", 1, 6)-1;
+//		Club clubName = Club.getClubList().get(club);
+//		//String clubName = Validator.getString(scnr, "Please enter the club name: ");
+//		LocalDateTime now = LocalDateTime.now();
+////		System.out.println(now.getHour());
+//		double fee = 19.99;
+//
+//		if (now.getHour() > 12 && now.getHour()<22) {
+//			System.out.println("Woohoo, You are eligible for discount and we will take $10 off of your total.");
+//			fee -=10.0;
+//		}
+//		fileHelper.append(new Constant(memberId, memberName, weight, fee,clubName));
+//		System.out.println("\nMember is added.");
+//		System.out.println("---------------------------------------------");
+//
+//		return constant;
+//	}
 	
-	public static  List<Flexible> addMember2( List<Flexible> flexible,Scanner scnr){
-		
-		
-		LocalDateTime now = LocalDateTime.now();
-//		System.out.println(now.getHour());
-		
-		String memberName = Validator.getString(scnr, "Please enter member name: ");
-		int memberId = Validator.getInt(scnr, "Please enter member Id: ");
-		double weight = Validator.getDouble(scnr, "Please enter member's weight: ");
-		double fee = 44.44;
-		if (now.getHour() > 12 && now.getHour()<18) {
-			System.out.println("Woohoo, You are eligible for discount and we will take 10$ off of your total.");
-			fee -=10.0;
-		}
-		int points = 0;
-
-		fileHelper.append(new Flexible(memberId, memberName, weight,fee,points));
-		System.out.println("\nMember is added.");
-		System.out.println("---------------------------------------------");
-
-		 return flexible;
-
-	}
-	
+//	public static  List<Flexible> addMember2( List<Flexible> flexible,Scanner scnr){
+//		
+//		
+//		LocalDateTime now = LocalDateTime.now();
+////		System.out.println(now.getHour());
+//		
+//		String memberName = Validator.getString(scnr, "Please enter member name: ");
+//		int memberId = Validator.getInt(scnr, "Please enter member Id: ");
+//		double weight = Validator.getDouble(scnr, "Please enter member's weight: ");
+//		double fee = 44.44;
+//		if (now.getHour() > 12 && now.getHour()<18) {
+//			System.out.println("Woohoo, You are eligible for discount and we will take 10$ off of your total.");
+//			fee -=10.0;
+//		}
+//		int points = 0;
+//
+//		fileHelper.append(new Flexible(memberId, memberName, weight,fee,points));
+//		System.out.println("\nMember is added.");
+//		System.out.println("---------------------------------------------");
+//
+//		 return flexible;
+//
+//	}
+//	
 
 	
 	public static void displayMemberInfo() {
