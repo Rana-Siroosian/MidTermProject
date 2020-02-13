@@ -107,7 +107,7 @@ public class Midterm {
 //		System.out.println(now.getHour());
 		double fee = 19.99;
 
-		if (now.getHour() > 12 && now.getHour()<18) {
+		if (now.getHour() > 12 && now.getHour()<20) {
 			System.out.println("Woohoo, You are eligible for discount and we will take 10$ off of your total.");
 			fee -=10.0;
 		}
@@ -129,12 +129,14 @@ public class Midterm {
 		String memberName = Validator.getString(scnr, "Please enter member name: ");
 		int memberId = Validator.getInt(scnr, "Please enter member Id: ");
 		double weight = Validator.getDouble(scnr, "Please enter member's weight: ");
-		
+		double fee = 44.44;
 		if (now.getHour() > 12 && now.getHour()<18) {
 			System.out.println("Woohoo, You are eligible for discount and we will take 10$ off of your total.");
+			fee -=10.0;
 		}
+		int points = 0;
 
-		fileHelper.append(new Flexible(memberId, memberName, weight));
+		fileHelper.append(new Flexible(memberId, memberName, weight,fee,points));
 		System.out.println("\nMember is added.");
 		System.out.println("---------------------------------------------");
 

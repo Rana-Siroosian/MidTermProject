@@ -30,6 +30,7 @@ public class CheckIn {
 		System.out.println("\nPlease pick a club from the list below (choose by number):\n ");
 		try{
 			members.get(checkIn-1).checkIn(Club.chooseClub(scnr));
+			System.out.println(((Flexible) members.get(checkIn-1)).getPoints());
 		}catch (AccessDeniedException e) {
 			e.getMessage();
 		}
