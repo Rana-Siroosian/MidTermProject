@@ -1,8 +1,4 @@
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-
 /**
  * 
  *@author RanaSiroosian&JeannieMcCarthy
@@ -11,6 +7,7 @@ import java.util.Scanner;
 public class Midterm {
 	public static FileHelper<Member> fileHelper = new FileHelper<Member>("MembersTextFile",
 			new MemberLineConverter());
+	
 	public static void main(String[] args) throws Exception {
 		
 		Scanner scnr = new Scanner (System.in);
@@ -19,19 +16,16 @@ public class Midterm {
 				+ "********************************************************************************\n");
 //		ClubArt.displayClubName("R A N A");
 //		List<Member> member = new ArrayList();
-//		String [] clubNames = {"Dumbell Paradise", "Oxygen360" , "Crazy CrossFit", "Run With It",
-//				"Tred Lightly", "Spin Me Right Round"};
 		
- 		List<Constant> constant = new ArrayList<>();
-		List<Flexible> flexible = new ArrayList<>();
-		printMenu(constant, flexible, scnr);
+		//Here's where all the good stuff happens:
+		printMenu(scnr);
 
 		System.out.println("Thank you, Goodbye!");
 	}
 	
 	
 	
-	public static void printMenu(List<Constant> constant,List<Flexible> flexible,Scanner scnr) {
+	public static void printMenu(Scanner scnr) {
 
 		String [] menu = {"Add Member", "Check In Member","Display Member Information", "Generate Invoice", 
 				"Remove member", "Quit"};
@@ -50,93 +44,38 @@ public class Midterm {
 			
 			if (AddMember.displayMembershipOptions(scnr)) {
 				AddMember.addMember1(scnr);
-				printMenu(constant, flexible, scnr);
+				printMenu(scnr);
 
 				break;}
 			else {
 				AddMember.addMember2(scnr);
-				printMenu(constant, flexible, scnr);
+				printMenu(scnr);
 
 				break;
 			}
 		case 2 : 
 			CheckIn.checkIn(scnr);
-			printMenu(constant, flexible, scnr);
+			printMenu(scnr);
 
 			break;
 		
 		case 3: 
 			displayMember.displayMemberInfo();
-			printMenu(constant, flexible, scnr);
+			printMenu(scnr);
 			break;
 			
 		case 4 :
 			GenerateMemInvoice.generateInvoice(scnr);
-			printMenu(constant, flexible, scnr);
+			printMenu(scnr);
 			break;
 		case 5 : 
 			RemoveMem.removeMember(scnr);
-			printMenu(constant, flexible, scnr);
+			printMenu(scnr);
 			break;
 			
 		case 6 :
 			break;
 		}
-		
 	}
-	
-//	public static List<Constant> addMember1(List<Constant> constant,Scanner scnr) {
-//		
-//		String memberName = Validator.getString(scnr, "Please enter member name: ");
-//		int memberId = Validator.getInt(scnr, "Please enter member Id: ");
-//		double weight = Validator.getDouble(scnr, "Please enter member's weight: ");
-//		//get Club
-//		System.out.println("\nPlease choose a club (by number) from the list below: ");
-//		Club.showClubs();
-//
-//		int club = Validator.getInt(scnr, "", 1, 6)-1;
-//		Club clubName = Club.getClubList().get(club);
-//		//String clubName = Validator.getString(scnr, "Please enter the club name: ");
-//		LocalDateTime now = LocalDateTime.now();
-////		System.out.println(now.getHour());
-//		double fee = 19.99;
-//
-//		if (now.getHour() > 12 && now.getHour()<22) {
-//			System.out.println("Woohoo, You are eligible for discount and we will take $10 off of your total.");
-//			fee -=10.0;
-//		}
-//		fileHelper.append(new Constant(memberId, memberName, weight, fee,clubName));
-//		System.out.println("\nMember is added.");
-//		System.out.println("---------------------------------------------");
-//
-//		return constant;
-//	}
-	
-//	public static  List<Flexible> addMember2( List<Flexible> flexible,Scanner scnr){
-//		
-//		
-//		LocalDateTime now = LocalDateTime.now();
-////		System.out.println(now.getHour());
-//		
-//		String memberName = Validator.getString(scnr, "Please enter member name: ");
-//		int memberId = Validator.getInt(scnr, "Please enter member Id: ");
-//		double weight = Validator.getDouble(scnr, "Please enter member's weight: ");
-//		double fee = 44.44;
-//		if (now.getHour() > 12 && now.getHour()<18) {
-//			System.out.println("Woohoo, You are eligible for discount and we will take 10$ off of your total.");
-//			fee -=10.0;
-//		}
-//		int points = 0;
-//
-//		fileHelper.append(new Flexible(memberId, memberName, weight,fee,points));
-//		System.out.println("\nMember is added.");
-//		System.out.println("---------------------------------------------");
-//
-//		 return flexible;
-//
-//	}
-//	
-
-
 }
 	
