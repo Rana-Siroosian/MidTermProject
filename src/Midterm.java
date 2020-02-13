@@ -33,7 +33,7 @@ public class Midterm {
 		List<Flexible> flexible = new ArrayList<>();
 		printMenu(constant, flexible, scnr);
 
-		
+		System.out.println("Thank you, Goodbye!");
 	}
 	
 	public static void printMenu(List<Constant> constant,List<Flexible> flexible,Scanner scnr) {
@@ -88,7 +88,7 @@ public class Midterm {
 		case 6 :
 			break;
 		}
-		System.out.println("Thank you, Goodbye!");
+		
 	}
 	
 	public static List<Constant> addMember1(List<Constant> constant,Scanner scnr) {
@@ -119,8 +119,6 @@ public class Midterm {
 	}
 	
 	public static  List<Flexible> addMember2( List<Flexible> flexible,Scanner scnr){
-		
-		
 		
 		
 		LocalDateTime now = LocalDateTime.now();

@@ -8,21 +8,20 @@ import java.util.Scanner;
 public class CheckIn {
 	public static FileHelper<Member> fileHelper = new FileHelper<Member>("MembersTextFile",
 			new MemberLineConverter());
+	
 	public static void checkIn(Scanner scnr){
 		
 		List<Member> members = fileHelper.readAll();
+		
 		System.out.println("Which member would you like to check in? "
-				+ "(choose by number from the list before): ");
+				+ "(choose by number from the list below): ");
 		System.out.println();
+//display		
 		System.out.println(String.format("%-2s %-5s%-15s","#", "Id", "Member"));
 		System.out.println("***************");
 		int i=0;
-
 		for (Member member : members) {
-
 			System.out.println((i+=1)+". " + member.getId()+ "\t" +member.getName()+"\n");
-			
-			
 		}
 		int checkIn = Validator.getInt(scnr, "", 1, members.size());
 		
@@ -30,12 +29,15 @@ public class CheckIn {
 		System.out.println("\nPlease pick a club from the list below (choose by number):\n ");
 		
 		try{
-//			int points = 0;
-			members.get(checkIn-1).checkIn(Club.chooseClub(scnr));
-			System.out.println(((Flexible) members.get(checkIn-1)).getPoints());
+			Club club = Club.chooseClub(scnr);
+			Member member = members.get(checkIn-1);
+			member.checkIn(member, club);
+			//rewrite file so points will accumulate
+			fileHelper.rewrite(members);
 		}catch (AccessDeniedException e) {
-			e.getMessage();
+			System.out.println(e.getMessage());
 		}
+		
 		System.out.println("---------------------------------------------");
 
 		

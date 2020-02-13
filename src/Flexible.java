@@ -18,9 +18,12 @@ public class Flexible extends Member{
 
 
 	@Override
-	public void checkIn(Club club) {
+	public void checkIn(Member member, Club club) {
 		
 		points++;
+		System.out.println("Great! Successfullly checked in at " + club.getName() + ". "
+				+ member.getName() + "'s point balance has increased to: " + 
+				(((Flexible) member).getPoints()));
 	}
 	
 	@Override 
