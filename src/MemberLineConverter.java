@@ -11,7 +11,7 @@ public class MemberLineConverter implements LineConverter<Member> {
 			return String.format("%d\t%s\t%.2f\t%d\t%d", member.getId(), member.getName(), member.getWeight(), member.getFee(),
 					((Flexible) member).getPoints());
 		} else {
-			return String.format("%d\t%s\t%.2f\t%d\t%s", member.getId(), member.getName(), member.getWeight(), member.getFee(),
+			return String.format("%d\t%s\t%.2f\t%f\t%s", member.getId(), member.getName(), member.getWeight(), member.getFee(),
 					((Constant) member).getHomeClub());
 		}
 
@@ -39,7 +39,13 @@ public class MemberLineConverter implements LineConverter<Member> {
 			String name = parts[1];
 			double weight = Double.parseDouble(parts[2]);
 			double fee = Double.parseDouble(parts[3]);
-			String homeClub = parts[4];
+			Club homeClub = null;
+			for (Club club : Club.getClubList()) {
+				if (club.toString().contains((CharSequence) parts[4])) {
+					 homeClub = club;
+				}
+			}
+			 
 			return new Constant(id, name, weight, fee, homeClub);
 		}
 		else return new Flexible(0, "ERROR", 0.0,0.0, 0);

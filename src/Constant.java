@@ -11,16 +11,16 @@ public class Constant extends Member {
 		this.fee=19.99;
 	}
 	//constructor for file reader
-	public Constant(int id, String name, double weight, double fee, String homeClub) {
+	public Constant(int id, String name, double weight, double fee, Club homeClub) {
 		super(id, name, weight);
-		
+		this.homeClub = homeClub;
 		this.fee=fee;
-		//get string from file, loop through clubs to find matching club for this member
-		for (Club club : Club.getClubList()) {
-			if (club.toString().contains(homeClub)) {
-				this.homeClub = club;
-			}
-		}
+//		//get string from file, loop through clubs to find matching club for this member
+//		for (Club club : Club.getClubList()) {
+//			if (club.toString().contains( homeClub)) {
+//				this.homeClub = club;
+//			}
+//		}
 	}
 
 
