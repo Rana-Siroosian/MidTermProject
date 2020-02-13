@@ -57,6 +57,6 @@ public abstract class Member {
 	@Override
 	public abstract String toString();
 	
-	public abstract void checkIn(Club club) throws AccessDeniedException;
+	public abstract void checkIn(Member member, Club club) throws AccessDeniedException;
 	
 }

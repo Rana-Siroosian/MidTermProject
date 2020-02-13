@@ -24,16 +24,18 @@ public class Constant extends Member {
 	}
 
 
-	@SuppressWarnings("unlikely-arg-type")
 	@Override
-	public void checkIn(Club club) throws AccessDeniedException {
+	public void checkIn(Member member, Club club) throws AccessDeniedException {
 		
 		if(club.equals(homeClub)) {
-			System.out.println("Welcome to your club.");
+			System.out.println("Welcome to " + club.getName());
 		}
 		else {
-			throw new AccessDeniedException("Membership type is not eligible "
-					+ "for entry into this location.");
+			throw new AccessDeniedException(member.getName() + "'s Membership type is not eligible "
+					+ "for entry into " + club.getName() + ".\n Please advise " + member.getName() 
+					+ " to head over to " + ((Constant) member).getHomeClub() + " at " 
+					+ ((Constant) member).getHomeClub().getAddress() + "\nor UPGRADE to our " 
+					+ "Flexible Membership option TODAY!!!");
 		}
 	}
 
