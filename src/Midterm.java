@@ -1,12 +1,5 @@
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
-import java.awt.image.BufferedImage;
-import java.time.Clock;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -35,6 +28,8 @@ public class Midterm {
 
 		System.out.println("Thank you, Goodbye!");
 	}
+	
+	
 	
 	public static void printMenu(List<Constant> constant,List<Flexible> flexible,Scanner scnr) {
 
@@ -72,16 +67,16 @@ public class Midterm {
 			break;
 		
 		case 3: 
-			displayMemberInfo();
+			displayMember.displayMemberInfo();
 			printMenu(constant, flexible, scnr);
 			break;
 			
 		case 4 :
-			generateInvoice(scnr);
+			GenerateMemInvoice.generateInvoice(scnr);
 			printMenu(constant, flexible, scnr);
 			break;
 		case 5 : 
-			removeMember(scnr);
+			RemoveMem.removeMember(scnr);
 			printMenu(constant, flexible, scnr);
 			break;
 			
@@ -143,81 +138,6 @@ public class Midterm {
 	}
 	
 
-	
-	public static void displayMemberInfo() {
-		System.out.println(String.format("%-5s%-15s%-12s%-10s", "Id", "Member","Weight","Club Name"));
-		System.out.println("*****************************************");
-		List<Member> members = fileHelper.readAll();
-		
-		for (Member member : members) {
-			System.out.println(member.toString());
-		}
-		
-		System.out.println("---------------------------------------------");
 
-	}
-	
-	public static void removeMember(Scanner scnr) {
-		
-		List<Member> members = fileHelper.readAll();
-		
-		System.out.println(String.format("%-2s %-5s%-15s%-12s%-10s","#", "Id", "Member","Weight","Club Name"));
-		System.out.println("*****************************************");
-		int i=0;
-
-		for (Member member : members) {
-
-			System.out.println((i+=1)+". " + member.toString());
-			
-		}
-		int delete = Validator.getInt(scnr, "Which member would you like to delete? (choose by member ID): ");
-
-		System.err.print("Are you sure you want to delete " + members.get(delete-1).getName() + " from the list? (y/n): ");
-		String question = Validator.yesOrNo(scnr);
-
-		if (question.equalsIgnoreCase("y")) {
-			System.out.println(members.get(delete-1).getName() + " is removed from the list! ");
-			members.remove(delete-1);
-			fileHelper.rewrite(members);
-
-			
-		}
-		if (question.equalsIgnoreCase("n")) {
-			System.out.println();
-			System.out.println("Ok , next time make up your mind before pressing delete.");
-
-		}
-		System.out.println("---------------------------------------------");
-
-	}
-	
-	public static void generateInvoice(Scanner scnr) {
-		List<Member> members = fileHelper.readAll();
-				
-		System.out.println(String.format("%-2s %-5s%-15s","#", "Id", "Member"));
-		System.out.println("***************");
-		int i=0;
-
-		for (Member member : members) {
-
-			System.out.println((i+=1)+". " + member.getId()+ "\t" +member.getName()+"\n");
-			
-			
-		}
-		System.out.println();
-		int invoice = Validator.getInt(scnr, "Which member would you like to see the invoice for? (choose by number): ", 1, members.size());
-		
-		System.out.println();
-		System.out.println(String.format("%-5s%-11s%-15s", "Id", "Member", "Fee"));
-		System.out.println("*********************");
-
-			System.out.println(String.format("%-5s %-10s%-10s" ,members.get(invoice-1).getId(), members.get(invoice-1).getName()
-					,members.get(invoice-1).getFee()));
-
-		System.out.println("---------------------------------------------");
-
-		
-	}
-	
 }
 	
