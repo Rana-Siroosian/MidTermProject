@@ -1,10 +1,10 @@
-
+//This class is the "Single Club" Member class
 public class Constant extends Member {
 	
 	protected Club homeClub;
 	
 	
-//constructor for program
+	//constructor for program
 	public Constant(int id, String name, double weight, Club homeClub) {
 		super(id, name, weight);
 		this.homeClub = homeClub;
@@ -42,11 +42,6 @@ public class Constant extends Member {
 
 	public Club getHomeClub() {
 		return homeClub;
-	}
-
-
-	public void setHomeClub(Club homeClub) {
-		this.homeClub = homeClub;
 	}
 
 

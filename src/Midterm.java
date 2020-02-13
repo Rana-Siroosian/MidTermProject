@@ -8,17 +8,22 @@ import java.util.Scanner;
 public class Midterm {
 	public static FileHelper<Member> fileHelper = new FileHelper<Member>("MembersTextFile", new MemberLineConverter());
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 
 		Scanner scnr = new Scanner(System.in);
 
 		// Display cool Ascii art greeting:
+		try {
 		ClubArt.displayGreeting("FITNESS CLUB");
 		boolean loop = true;
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+
 //		ClubArt.displayClubName("R A N A");
 		
 		int choice = printMenu(scnr);
-
+		boolean loop = true;
 		do {
 		// Print menu options and get menu selection from user, then switch it up:
 		switch (choice) {
