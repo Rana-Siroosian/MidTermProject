@@ -8,12 +8,16 @@ import java.util.Scanner;
 public class Midterm {
 	public static FileHelper<Member> fileHelper = new FileHelper<Member>("MembersTextFile", new MemberLineConverter());
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) {
 
 		Scanner scnr = new Scanner(System.in);
 
 		// Display cool Ascii art greeting:
+		try {
 		ClubArt.displayGreeting("FITNESS CLUB");
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 
 //		ClubArt.displayClubName("R A N A");
 
