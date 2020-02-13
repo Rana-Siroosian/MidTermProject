@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class CheckIn {
 	public static FileHelper<Member> fileHelper = new FileHelper<Member>("MembersTextFile",
 			new MemberLineConverter());
+	
 	public static void checkIn(Scanner scnr){
 		
 		List<Member> members = fileHelper.readAll();
@@ -23,9 +24,10 @@ public class CheckIn {
 			System.out.println((i+=1)+". " + member.getId()+ "\t" +member.getName()+"\n");
 		}
 		int checkIn = Validator.getInt(scnr, "", 1, members.size());
-
+		
 		System.out.println();
 		System.out.println("\nPlease pick a club from the list below (choose by number):\n ");
+		
 		try{
 			Club club = Club.chooseClub(scnr);
 			Member member = members.get(checkIn-1);

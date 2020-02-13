@@ -107,8 +107,8 @@ public class Midterm {
 //		System.out.println(now.getHour());
 		double fee = 19.99;
 
-		if (now.getHour() > 12 && now.getHour()<20) {
-			System.out.println("Woohoo, You are eligible for discount and we will take 10$ off of your total.");
+		if (now.getHour() > 12 && now.getHour()<22) {
+			System.out.println("Woohoo, You are eligible for discount and we will take $10 off of your total.");
 			fee -=10.0;
 		}
 		fileHelper.append(new Constant(memberId, memberName, weight, fee,clubName));
