@@ -16,6 +16,7 @@ public class Midterm {
 		ClubArt.displayGreeting("FITNESS CLUB");
 		boolean loop = true;
 //		ClubArt.displayClubName("R A N A");
+		
 		int choice = printMenu(scnr);
 
 		do {
