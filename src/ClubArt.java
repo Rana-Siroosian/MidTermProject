@@ -31,6 +31,8 @@ public class ClubArt {
     
     public static void displayGreeting(String name) throws Exception {
     	printGreet(name);
+		System.out.println("**************************************************"
+				+ "********************************************************************************\n");
     }
     
     public static void addMembers() {

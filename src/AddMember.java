@@ -53,7 +53,7 @@ public class AddMember {
 		System.out.println("---------------------------------------------");
 	}
 	
-	public static boolean displayMembershipOptions(Scanner scnr) {
+	public static boolean membershipOptions(Scanner scnr) {
 		System.out.println("Here are our membership options:\n");
 		System.out.println(String.format("%-40s%-40s", "Single Club Membership", "Flexible Membership"));
 		System.out.println("**************************************|******************************************");

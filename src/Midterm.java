@@ -1,81 +1,83 @@
 import java.util.Scanner;
+
 /**
  * 
- *@author RanaSiroosian&JeannieMcCarthy
+ * @author RanaSiroosian&JeannieMcCarthy
  *
  */
 public class Midterm {
-	public static FileHelper<Member> fileHelper = new FileHelper<Member>("MembersTextFile",
-			new MemberLineConverter());
-	
+	public static FileHelper<Member> fileHelper = new FileHelper<Member>("MembersTextFile", new MemberLineConverter());
+
 	public static void main(String[] args) throws Exception {
-		
-		Scanner scnr = new Scanner (System.in);
+
+		Scanner scnr = new Scanner(System.in);
+
+		// Display cool Ascii art greeting:
 		ClubArt.displayGreeting("FITNESS CLUB");
-		System.out.println("**************************************************"
-				+ "********************************************************************************\n");
+
 //		ClubArt.displayClubName("R A N A");
-//		List<Member> member = new ArrayList();
-		
-		//Here's where all the good stuff happens:
-		printMenu(scnr);
 
-		System.out.println("Thank you, Goodbye!");
-	}
-	
-	
-	
-	public static void printMenu(Scanner scnr) {
+		// Print menu options and get menu selection from user, then switch it up:
+		switch (printMenu(scnr)) {
 
-		String [] menu = {"Add Member", "Check In Member","Display Member Information", "Generate Invoice", 
-				"Remove member", "Quit"};
-		
-		for (int i = 0; i < menu.length; i++) {
-			System.out.println((i+1) + ". " + menu[i]);
-			
-		}
-		System.out.println("---------------------------------------------");
-		int choice = Validator.getInt(scnr, "\nWhat would you like to do? (choose by number): ", 1, 6);
-		System.out.println();
-		
-		switch (choice) {
-		
-		case 1 :
-			
-			if (AddMember.displayMembershipOptions(scnr)) {
+		case 1:
+			//Check to see what kind of Membership the person wants. 
+			if (AddMember.membershipOptions(scnr)) {
 				AddMember.addMember1(scnr);
 				printMenu(scnr);
-
-				break;}
-			else {
+				break;
+			} else {
 				AddMember.addMember2(scnr);
 				printMenu(scnr);
-
 				break;
 			}
-		case 2 : 
+		case 2:
+			
 			CheckIn.checkIn(scnr);
 			printMenu(scnr);
-
 			break;
-		
-		case 3: 
+
+		case 3:
+			
 			displayMember.displayMemberInfo();
 			printMenu(scnr);
 			break;
+
+		case 4:
 			
-		case 4 :
 			GenerateMemInvoice.generateInvoice(scnr);
 			printMenu(scnr);
 			break;
-		case 5 : 
+			
+		case 5:
+			
 			RemoveMem.removeMember(scnr);
 			printMenu(scnr);
 			break;
+
+		case 6:
 			
-		case 6 :
 			break;
 		}
+		
+		System.out.println("Thank you, Goodbye!");
+	}
+
+	public static int printMenu(Scanner scnr) {
+		
+		//Menu options in String array:
+		String[] menu = { "Add Member", "Check In Member", "Display Member Information", "Generate Invoice",
+				"Remove member", "Quit" };
+		
+		//loop through to display them nicely:
+		for (int i = 0; i < menu.length; i++) {
+			System.out.println((i + 1) + ". " + menu[i]);
+		}
+		System.out.println("---------------------------------------------");
+		
+		//Get user Selection
+		int choice = Validator.getInt(scnr, "\nWhat would you like to do? (choose by number): ", 1, 6);
+		System.out.println();
+		return choice;
 	}
 }
-	
