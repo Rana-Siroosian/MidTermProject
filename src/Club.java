@@ -23,20 +23,12 @@ public class Club {
 	public String getAddress() {
 		return address;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
+	
 	@Override
 	public String toString() {
 		return String.format("Club: %s", name);
 	}
 	
-	public static void displayName(String name) {
-		
-	}
 	//club list variable
 	private static List<Club> clubs = new ArrayList<>(Arrays.asList
 			(new Club("Dumbell Paradise", "123 Main Street"), new Club("Oxygen360" , "345 Main St."),
@@ -50,11 +42,14 @@ public class Club {
 		}
 	}
 	
+	//get club selection from user
 	public static Club chooseClub(Scanner scnr) {
 		showClubs();
 		int club = Validator.getInt(scnr, "", 1, 6)-1;
 		return clubs.get(club);
 	}
+	
+	//get list of Clubs for use in other methods
 	public static List<Club> getClubList() {
 		return clubs;
 	}

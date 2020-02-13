@@ -20,39 +20,17 @@ public class ClubArt {
     public static final int ART_SIZE_HUGE = 32;
     public static final int ART_SIZE_EXTRASMALL = 18;
     private static final String DEFAULT_ART_SYMBOL = "*";
- 
-    
- 
-    public static void displayClubName(String name) throws Exception {
-         printClubName(name);
-          
-    }
     
     
     public static void displayGreeting(String name) throws Exception {
-    	printGreet(name);
-		System.out.println("**************************************************"
-				+ "********************************************************************************\n");
-    }
-    
-    public static void addMembers() {
-    	
-    	
-    }
-	private static void printGreet(String name) throws Exception {
-    	
-    	ClubArt artGen = new ClubArt();
-
+	
+		//Create object to access instance methods
+		ClubArt artGen = new ClubArt();
     	System.out.println();
         artGen.printTextArt(name, ClubArt.ART_SIZE_EXTRASMALL, ASCIIArtFont.ART_FONT_SANS_SERIF,"@");
         System.out.println();
-    }
-    private static void printClubName(String name) throws Exception {
-    	ClubArt artGen = new ClubArt();
-
-    	System.out.println();
-        artGen.printTextArt(name, ClubArt.ART_SIZE_SMALL, ASCIIArtFont.ART_FONT_SANS_SERIF,"@");
-        System.out.println();
+        System.out.println("**************************************************"
+				+ "********************************************************************************\n");
     }
  
     /**
@@ -84,17 +62,6 @@ public class ClubArt {
                 continue;
             System.out.println(sb);
         }
-    }
- 
-    /**
-     * Convenience method for printing ascii text art.
-     * Font default - Dialog,  Art symbol default - *
-     * @param artText
-     * @param textHeight
-     * @throws Exception
-     */
-    private void printTextArt(String artText, int textHeight) throws Exception {
-        printTextArt(artText, textHeight, ASCIIArtFont.ART_FONT_DIALOG, DEFAULT_ART_SYMBOL);
     }
  
     /**

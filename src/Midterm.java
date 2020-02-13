@@ -21,7 +21,7 @@ public class Midterm {
 		switch (printMenu(scnr)) {
 
 		case 1:
-			//Check to see what kind of Membership the person wants. 
+			//Check to see what kind of Membership the person wants, different add methods for different memberships
 			if (AddMember.membershipOptions(scnr)) {
 				AddMember.addMember1(scnr);
 				printMenu(scnr);
