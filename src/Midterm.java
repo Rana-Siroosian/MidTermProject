@@ -14,52 +14,54 @@ public class Midterm {
 
 		// Display cool Ascii art greeting:
 		ClubArt.displayGreeting("FITNESS CLUB");
-
+		boolean loop = true;
 //		ClubArt.displayClubName("R A N A");
+		int choice = printMenu(scnr);
 
+		do {
 		// Print menu options and get menu selection from user, then switch it up:
-		switch (printMenu(scnr)) {
+		switch (choice) {
 
 		case 1:
 			//Check to see what kind of Membership the person wants, different add methods for different memberships
 			if (AddMember.membershipOptions(scnr)) {
 				AddMember.addMember1(scnr);
-				printMenu(scnr);
+				choice =printMenu(scnr);
 				break;
 			} else {
 				AddMember.addMember2(scnr);
-				printMenu(scnr);
+				choice =printMenu(scnr);
 				break;
 			}
 		case 2:
 			
 			CheckIn.checkIn(scnr);
-			printMenu(scnr);
+			choice =printMenu(scnr);
 			break;
 
 		case 3:
 			
 			displayMember.displayMemberInfo();
-			printMenu(scnr);
+			choice =printMenu(scnr);
 			break;
 
 		case 4:
 			
 			GenerateMemInvoice.generateInvoice(scnr);
-			printMenu(scnr);
+			choice =printMenu(scnr);
 			break;
 			
 		case 5:
 			
 			RemoveMem.removeMember(scnr);
-			printMenu(scnr);
+			choice =printMenu(scnr);
 			break;
 
 		case 6:
-			
+			loop = false;
 			break;
 		}
-		
+		}while (loop);
 		System.out.println("Thank you, Goodbye!");
 	}
 
